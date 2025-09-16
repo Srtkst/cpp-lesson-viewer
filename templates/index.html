@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>C++授業 - トップページ</title>
+    <style>
+        body { font-family: sans-serif; background: #1e1e1e; color: #dcdcdc; padding: 20px; }
+        a { color: #569cd6; text-decoration: none; display: block; margin: 5px 0; }
+    </style>
+</head>
+<body>
+    <h1>C++授業 トップページ</h1>
+    <ul>
+        {% for lesson in lessons %}
+            <li>
+                <a href="{{ url_for('show_lesson', number=lesson.number) }}">
+                    第{{ lesson.number }}回 C++授業 ({{ lesson.title }})
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <div style="margin-top:20px;">
+    <a href="{{ url_for('download_all') }}" 
+       style="color:#f92672; text-decoration:none; font-weight:bold;">第1回～第6回 一括ダウンロード (.zip)</a>
+    </div>
+</body>
+</html>

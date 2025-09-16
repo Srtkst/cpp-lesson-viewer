@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>第{{ number }}回 - C++授業</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pygments.css') }}">
+    <style>
+        body {
+            font-family: sans-serif;
+            background: #1e1e1e;
+            color: #dcdcdc;
+            padding: 20px;
+        }
+        nav a {
+            color: #569cd6;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        .nav-left a {
+            color: #569cd6;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+        .nav-right a {
+            color: #569cd6;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>第{{ number }}回 C++授業</h1>
+    <nav>
+        <div class="nav-left">
+            {% if number > 1 %}
+                <a href="{{ url_for('show_lesson', number=number-1) }}">← 前へ</a>
+            {% endif %}
+            {% if number < lessons|length %}
+                <a href="{{ url_for('show_lesson', number=number+1) }}">次へ →</a>
+            {% endif %}
+        </div>
+        <div class="nav-right">
+            <a href="{{ url_for('index') }}">ホームページに戻る</a>
+        </div>
+    </nav>
+
+    <div class="downloads" style="margin-top:10px;">
+    <a href="{{ url_for('download_lesson', number=number, filetype='cpp') }}" 
+       style="color:#a6e22e; text-decoration:none; margin-right:10px;">Download .cpp</a>
+    <a href="{{ url_for('download_lesson', number=number, filetype='txt') }}" 
+       style="color:#e6db74; text-decoration:none;">Download .txt</a>
+    </div>
+
+    <div class="codehilite">
+        {{ code|safe }}
+    </div>
+
+
+</body>
+</html>
