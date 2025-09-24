@@ -87,8 +87,14 @@ def download_all():
                     # ZIP 内でフォルダを分ける
                     zip_path = f"{ext}/{filename}"  # cpp/第1回.cpp, txt/第1回.txt
                     zf.write(filepath, arcname=zip_path)
+
     memory_file.seek(0)
-    return send_file(memory_file, attachment_filename="C++_授業.zip", as_attachment=True)
+    return send_file(
+        memory_file,
+        as_attachment=True,
+        download_name="C++_授業.zip",  # ← attachment_filename ではなく download_name
+        mimetype="application/zip"
+    )
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5000)
