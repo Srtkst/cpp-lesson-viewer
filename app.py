@@ -90,10 +90,11 @@ def download_all():
                     zf.write(filepath, arcname=zip_path)
 
     memory_file.seek(0)
+
     return send_file(
         memory_file,
         as_attachment=True,
-        download_name="C++_授業.zip",  # ← attachment_filename ではなく download_name
+        download_name="lessons.zip",  # ← attachment_filename ではなく download_name
         mimetype="application/zip"
     )
 
