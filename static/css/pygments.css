@@ -16,7 +16,7 @@
 .codehilite .cm { color: #75715e; font-style: italic } /* コメント行 */
 .codehilite .cp { color: #75715e; font-weight: bold } /* プロログ */
 .codehilite .c1 { color: #75715e; font-style: italic } /* コメント1行 */
-.codehilite .cs { color: #75715e; font-style: italic } /* ドキュメントコメント */
+.codehilite .cs { color: #8f908a; font-style: italic } /* ドキュメントコメント */
 .codehilite .gd { color: #f92672 } /* 削除行 */
 .codehilite .ge { font-style: italic } /* 強調 */
 .codehilite .gr { color: #f92672 } /* 重要文字 */
